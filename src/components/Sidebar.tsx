@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LayoutDashboard, Database, BarChart3, Settings, User } from "lucide-react";
+import { LayoutDashboard, Database, BarChart3, Settings, User, ExternalLink } from "lucide-react";
 
 export default function Sidebar() {
   return (
@@ -8,7 +8,7 @@ export default function Sidebar() {
         <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center">
           <Database size={18} className="text-white" />
         </div>
-        <span className="font-bold text-xl tracking-tight">Data Lab</span>
+        <span className="font-bold text-xl tracking-tight">Kibreab's Lab</span>
       </div>
 
       <nav className="flex flex-col gap-2">
@@ -17,7 +17,16 @@ export default function Sidebar() {
         <NavItem href="/resume" icon={<User size={20} />} label="Interactive Resume" />
       </nav>
 
-      <div className="mt-auto flex flex-col gap-2">
+      <div className="mt-auto flex flex-col gap-4">
+        <a 
+          href="https://www.upwork.com/freelancers/~01b2bc7f57a143ee14" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-2 w-full bg-emerald-600 hover:bg-emerald-500 text-white py-3 rounded-lg font-bold transition-all shadow-lg hover:shadow-emerald-900/20"
+        >
+          Hire Me on Upwork
+          <ExternalLink size={18} />
+        </a>
         <NavItem href="/settings" icon={<Settings size={20} />} label="Settings" />
       </div>
     </div>

@@ -6,8 +6,8 @@ import Sidebar from "@/components/Sidebar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Data Lab | Portfolio",
-  description: "Interactive Data Science Portfolio",
+  title: "Kibreab Kebede | Data Science Portfolio",
+  description: "Statistician, Data Scientist & Full-Stack Developer",
 };
 
 export default function RootLayout({

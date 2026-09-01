@@ -6,8 +6,12 @@ export default function Home() {
   return (
     <div className="p-8 max-w-7xl mx-auto">
       <header className="mb-10">
-        <h1 className="text-3xl font-bold mb-2">System Overview</h1>
-        <p className="text-neutral-400">Welcome to my Interactive Data Science Portfolio.</p>
+        <h1 className="text-4xl font-bold mb-2">Hi, I'm Kibreab Kebede</h1>
+        <h2 className="text-xl text-blue-500 font-medium mb-4">Statistician, Data Scientist & Full-Stack Developer</h2>
+        <p className="text-neutral-400 max-w-3xl text-lg leading-relaxed">
+          I am a Statistics graduate who specializes in building predictive models with R and Python, 
+          and turning complex data into beautiful, interactive web applications.
+        </p>
       </header>
 
       {/* KPI Cards */}
