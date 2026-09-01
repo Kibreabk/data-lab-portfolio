@@ -1,16 +1,25 @@
 "use client";
+import { useEffect, useState } from "react";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Tooltip } from 'recharts';
 
-const data = [
-  { subject: 'Python', score: 95 },
-  { subject: 'R / Stats', score: 90 },
-  { subject: 'Machine Learning', score: 85 },
-  { subject: 'SQL / DBs', score: 80 },
-  { subject: 'React / UI', score: 75 },
-  { subject: 'Data Viz', score: 95 },
-];
-
 export default function SkillsRadarChart() {
+  const [data, setData] = useState<any[]>([]);
+
+  useEffect(() => {
+    fetch("/api/skills-data")
+      .then(res => res.json())
+      .then(setData)
+      .catch(err => console.error("Failed to fetch skills data", err));
+  }, []);
+
+  if (data.length === 0) {
+    return (
+      <div className="w-full h-full min-h-[300px] flex items-center justify-center text-purple-500 font-mono animate-pulse">
+        Fetching Live Python Data...
+      </div>
+    );
+  }
+
   return (
     <div className="w-full h-full min-h-[300px]">
       <ResponsiveContainer width="100%" height="100%">

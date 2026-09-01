@@ -1,17 +1,25 @@
 "use client";
+import { useEffect, useState } from "react";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
-const data = [
-  { name: 'Mon', accuracy: 82 },
-  { name: 'Tue', accuracy: 85 },
-  { name: 'Wed', accuracy: 88 },
-  { name: 'Thu', accuracy: 87 },
-  { name: 'Fri', accuracy: 93 },
-  { name: 'Sat', accuracy: 95 },
-  { name: 'Sun', accuracy: 98 },
-];
-
 export default function LiveStreamChart() {
+  const [data, setData] = useState<any[]>([]);
+
+  useEffect(() => {
+    fetch("/api/stream-data")
+      .then(res => res.json())
+      .then(setData)
+      .catch(err => console.error("Failed to fetch stream data", err));
+  }, []);
+
+  if (data.length === 0) {
+    return (
+      <div className="w-full h-full min-h-[300px] flex items-center justify-center text-blue-500 font-mono animate-pulse">
+        Fetching Live Python Data...
+      </div>
+    );
+  }
+
   return (
     <div className="w-full h-full min-h-[300px]">
       <ResponsiveContainer width="100%" height="100%">

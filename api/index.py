@@ -36,3 +36,28 @@ def run_prediction(req: PredictionRequest):
         "confidence_score": "92.4%",
         "margin_of_error": "+/- $1,250"
     }
+
+import random
+
+@app.get("/api/stream-data")
+def get_stream_data():
+    """Generates simulated live model accuracy data"""
+    days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    base_accuracy = 75
+    data = []
+    for day in days:
+        base_accuracy += random.randint(-2, 7)
+        data.append({"name": day, "accuracy": min(99, base_accuracy)})
+    return data
+
+@app.get("/api/skills-data")
+def get_skills_data():
+    """Returns the skills data for the radar chart"""
+    return [
+        { "subject": 'Python', "score": 95 },
+        { "subject": 'R / Stats', "score": 92 },
+        { "subject": 'Machine Learning', "score": 88 },
+        { "subject": 'SQL / DBs', "score": 85 },
+        { "subject": 'React / UI', "score": 80 },
+        { "subject": 'Data Viz', "score": 95 },
+    ]
