@@ -61,17 +61,17 @@ export default function AnalyticsSandbox() {
             <ParameterSlider 
               label="Marketing Spend ($)" 
               value={spend} min={1000} max={20000} step={500} 
-              onChange={(e) => setSpend(Number(e.target.value))} 
+              onChange={(e: any) => setSpend(Number(e.target.value))} 
             />
             <ParameterSlider 
               label="Active Users" 
               value={users} min={100} max={10000} step={100} 
-              onChange={(e) => setUsers(Number(e.target.value))} 
+              onChange={(e: any) => setUsers(Number(e.target.value))} 
             />
             <ParameterSlider 
               label="Avg Customer Age" 
               value={age} min={18} max={65} step={1} 
-              onChange={(e) => setAge(Number(e.target.value))} 
+              onChange={(e: any) => setAge(Number(e.target.value))} 
             />
             
             <button 
